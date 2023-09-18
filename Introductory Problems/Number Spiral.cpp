@@ -11,8 +11,8 @@ using namespace std;
 using ll = long long;
 using str = string;
 
-using pi = pair<int, int>;
-using pl = pair<ll, ll>;
+using pii = pair<int, int>;
+using pll = pair<ll, ll>;
 #define mp make_pair
 #define f first
 #define s second
@@ -33,17 +33,29 @@ int main () {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int n;
-    cin >> n;
+    int tc;
+    cin >> tc;
 
-    if (n == 1) cout << "1" << '\n';
-    else if (n < 4) cout << "NO SOLUTION" << '\n';
-    else {
-        for (int i = 2; i <= n; i+=2) cout << i << " ";
-        for (int i = 1; i <= n; i+=2) cout << i << " ";
+    while (tc--) {
+        ll y, x;
+        cin >> y >> x;
+
+        if (y > x) {
+            if (y % 2 == 0) {
+                cout << (y * y) - x + 1;
+            } else {
+                cout << (y - 1) * (y - 1) + x;
+            }
+        } else {
+            if (x % 2 == 0) {
+                cout << (x - 1) * (x - 1) + y;
+            } else {
+                cout << (x * x) - y + 1;
+            }
+        }
+
+        cout << '\n';
     }
-
-    cout << '\n';
 
     return 0;
 }
